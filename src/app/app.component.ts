@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { books } from '../mock-data';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title = 'app works!';
+  public books: Book[] = books;
+
+  public addBook(): void {
+      alert('Adding book');
+  }
 }

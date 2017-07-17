@@ -3,16 +3,30 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule, MdListModule, MdInputModule} from '@angular/material';
+
 import { AppComponent } from './app.component';
+import { BookComponent } from './book/book.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MdCardModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdToolbarModule,
+    MdListModule,
+    MdInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

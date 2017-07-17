@@ -1,9 +1,19 @@
-<header>
-  Header
-</header>
-<section class="bookshelf">
-  BookShelf
+<md-toolbar color="primary">
+    <ul style=" list-style: none;">
+        <li style="float: left; padding: 10px; margin: 10px;">Книжная полка</li>
+        <li style="float: left; padding: 10px; margin: 10px;">
+            <button md-button (click) = "addBook()">Добавить <i class="material-icons md18">add</i></button>
+        </li>
+        <li style="float: left; padding: 10px; margin: 10px;">
+                Поиск: <input mdInput placeholder="">
+        </li>
+    </ul>
+</md-toolbar>
+<section class="bookshelf" style="width: 100%">
+    <div *ngFor="let book of books" style="width: 30%">
+        <app-book [book] = book></app-book>
+    </div>
 </section>
 <footer>
-  FOOTER
+
 </footer>
