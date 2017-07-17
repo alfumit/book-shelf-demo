@@ -9,10 +9,12 @@
         </li>
     </ul>
 </md-toolbar>
-<section class="bookshelf" style="width: 100%">
-    <div *ngFor="let book of books" style="width: 30%">
-        <app-book [book] = book></app-book>
-    </div>
+<section class="bookshelf">
+    <md-grid-list cols="3">
+        <md-grid-tile *ngFor="let book of books">
+            <app-book [book] = book></app-book>
+        </md-grid-tile>
+    </md-grid-list>
 </section>
 <footer>
 

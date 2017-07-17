@@ -22,5 +22,25 @@ export const books: Book[] = [
         'issueYear': 1721,
         'publishDate': 1722,
         'ISBN': 1232342342342
+    },
+    {
+        'title': 'Капитанская Дочка',
+        'authorFirstName': 'Александр',
+        'authorLastName': 'Пушкин',
+        'pageNum': 1000,
+        'issuer': 'Пугачев',
+        'issueYear': 1721,
+        'publishDate': 1722,
+        'ISBN': 1232342342342
+    },
+    {
+        'title': 'Капитанская Дочка',
+        'authorFirstName': 'Александр',
+        'authorLastName': 'Пушкин',
+        'pageNum': 1000,
+        'issuer': 'Пугачев',
+        'issueYear': 1721,
+        'publishDate': 1722,
+        'ISBN': 1232342342342
     }
 ];

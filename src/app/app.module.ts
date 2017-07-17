@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule, MdListModule, MdInputModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule, MdListModule, MdInputModule, MdGridListModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -26,7 +26,8 @@ import { BookComponent } from './book/book.component';
     MdButtonToggleModule,
     MdToolbarModule,
     MdListModule,
-    MdInputModule
+    MdInputModule,
+    MdGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
