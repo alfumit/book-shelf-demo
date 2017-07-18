@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule,
-    MdListModule, MdInputModule, MdGridListModule, MdDialogModule, MdDialogTitle} from '@angular/material';
+    MdListModule, MdInputModule, MdGridListModule, MdDialogModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -34,8 +34,7 @@ import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.compon
     MdListModule,
     MdInputModule,
     MdGridListModule,
-    MdDialogModule,
-    MdDialogTitle
+    MdDialogModule
   ],
   entryComponents: [
     AddBookDialogComponent
