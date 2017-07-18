@@ -4,17 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule, MdListModule, MdInputModule, MdGridListModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule,
+    MdListModule, MdInputModule, MdGridListModule, MdDialogModule, MdDialogTitle} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { LocalStorageProviderService } from './services/local-storage-provider.service';
+import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent
+    BookComponent,
+    SortPipe,
+    AddBookDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +33,16 @@ import { BookComponent } from './book/book.component';
     MdToolbarModule,
     MdListModule,
     MdInputModule,
-    MdGridListModule
+    MdGridListModule,
+    MdDialogModule,
+    MdDialogTitle
   ],
-  providers: [],
+  entryComponents: [
+    AddBookDialogComponent
+  ],
+  providers: [
+    LocalStorageProviderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
