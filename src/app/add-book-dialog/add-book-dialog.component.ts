@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LocalStorageProviderService} from "../services/local-storage-provider.service";
 
 @Component({
   selector: 'app-add-book-dialog',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddBookDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor( private lStore: LocalStorageProviderService) { }
 
   ngOnInit() {
   }
+  public addBook = (item: Book) => {
+    console.log(this);
+    // this.lStore.addBook(item);
+  };
 
 }
