@@ -1,7 +1,7 @@
 /**
  * Created by Fedotov_Al on 17.07.2017.
  */
-export const books: Book[] = [
+export const defaultBookSet: Book[] = [
     {
         'title': 'Война и Мир',
         'authorFirstName': 'Лев',

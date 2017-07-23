@@ -8,10 +8,14 @@ import {LocalStorageProviderService} from "../services/local-storage-provider.se
 })
 export class AddBookDialogComponent implements OnInit {
 
+
   constructor( private lStore: LocalStorageProviderService) { }
 
   ngOnInit() {
+
   }
+  public minD = new Date("01.01.1800");
+
   public addBook = (item: Book) => {
     console.log(item);
     this.lStore.addBook(item);

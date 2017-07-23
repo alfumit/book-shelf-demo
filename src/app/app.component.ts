@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { books } from '../mock-data';
+import { defaultBookSet } from '../mock-data';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { MdDialog } from '@angular/material';
 import {AddBookDialogComponent} from './add-book-dialog/add-book-dialog.component';
@@ -11,7 +11,7 @@ import {AddBookDialogComponent} from './add-book-dialog/add-book-dialog.componen
 })
 export class AppComponent implements OnInit {
   public title = 'app works!';
-  public books: Book[] = books;
+  public books: Book[] = [];
   public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {};
 
   public openDialog() {
@@ -22,9 +22,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    books.forEach( (item) => {
-      this.lStore.addBook(item)
-    })
+    // When localStorage filled use it
+    if(this.lStore.localStorageExists())  {
+      for(let i in localStorage) {
+        this.books.push(this.lStore.getBook(i));
+      }
+      // When localStorage empty add mock values
+    } else {
+      this.books = defaultBookSet;
+      this.books.forEach( (item) => {
+        this.lStore.addBook(item)
+      })
+    }
   }
 
 }

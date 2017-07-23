@@ -11,9 +11,15 @@ export class LocalStorageProviderService {
             console.log(item);
             localStorage.setItem(encodeURIComponent(item.title), JSON.stringify(item));
     }
-    public getBook(item: string): string {
-        return localStorage.getItem(item);
+
+    public getBook(item: string): Book {
+        return JSON.parse(localStorage.getItem(item));
     }
+
+    public localStorageExists(): boolean {
+      return !!localStorage.length;
+    }
+
     public removeBook(item: string): any {
         return localStorage.removeItem(item);
     }
