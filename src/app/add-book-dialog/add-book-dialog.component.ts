@@ -13,8 +13,8 @@ export class AddBookDialogComponent implements OnInit {
   ngOnInit() {
   }
   public addBook = (item: Book) => {
-    console.log(this);
-    // this.lStore.addBook(item);
+    console.log(item);
+    this.lStore.addBook(item);
   };
 
 }

@@ -7,9 +7,9 @@ export class LocalStorageProviderService {
 
   public constructor(private http: Http) { }
 
-    public addBook(item: string): void {
+    public addBook(item: Book): void {
             console.log(item);
-            localStorage.setItem('test', JSON.stringify(item));
+            localStorage.setItem(encodeURIComponent(item.title), JSON.stringify(item));
     }
     public getBook(item: string): string {
         return localStorage.getItem(item);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { books } from '../mock-data';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { MdDialog } from '@angular/material';
@@ -9,7 +9,7 @@ import {AddBookDialogComponent} from './add-book-dialog/add-book-dialog.componen
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public title = 'app works!';
   public books: Book[] = books;
   public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {};
@@ -20,7 +20,11 @@ export class AppComponent {
           this.lStore.addBook(result);
       });
   }
-  public addBook(item: string): void {
-      this.lStore.addBook(item);
+
+  ngOnInit() {
+    books.forEach( (item) => {
+      this.lStore.addBook(item)
+    })
   }
+
 }

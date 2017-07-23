@@ -1,57 +1,60 @@
 <div class="dialog">
-    <md-dialog-container>
-        <form>
+
+        <form #form="ngForm" (submit)="addBook(form.value)">
             <md-list>
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="Title" value="" required>
+                        <input mdInput placeholder="Title" value="test" name="title" ngModel required>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="authorFirstName" value="">
+                        <input mdInput placeholder="authorFirstName" value="test" ngModel name="authorFirstName">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="authorLastName" value="">
+                        <input mdInput placeholder="authorLastName" value="test" ngModel name="authorLastName">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="pageNum" value="" type="number">
+                        <input mdInput placeholder="pageNum" value="1111" type="number" ngModel name="pageNum">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="issuer" value="">
+                        <input mdInput placeholder="issuer" value="test" name="issuer" ngModel>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="issueYear" value="">
+                        <input mdInput placeholder="issueYear" value="test" name="issueYear" ngModel>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="publishDate" value="">
+                        <input mdInput placeholder="publishDate" value="333333" name="publishDate" ngModel>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="publishDate" value="" type="number">
+                        <input mdInput placeholder="ISBN" value="444444" type="number" name="ISBN" ngModel>
                     </md-input-container>
                 </md-list-item>
 
             </md-list>
-        </form>
-    </md-dialog-container>
+            <div>
+              <button md-button type="submit" [disabled] = "form.invalid">Добавить</button>
+            </div>
 
+        </form>
+        {{ form.value | json }}
 </div>
