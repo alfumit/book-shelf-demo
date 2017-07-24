@@ -16,7 +16,7 @@ export class BookComponent implements OnInit {
     constructor( private lStore: LocalStorageProviderService, public dialog: MdDialog) { }
 
     public removeBook(item: Book): void {
-      this.lStore.addBook({action: 'remove', item: item});
+      this.lStore.bookAction({action: 'remove', item: item});
     }
 
     public editBook(item: Book): void {

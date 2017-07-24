@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+}
+
+ul li {
+  float: left;
+  padding: 10px;
+  margin: 10px;
+}
+.mat-select-placeholder, .mat-select-value-text {
+  color: white;
+  font-weight: bold;
+}
+

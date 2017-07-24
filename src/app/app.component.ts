@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { defaultBookSet } from '../mock-data';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { MdDialog } from '@angular/material';
-import {AddBookDialogComponent} from './add-book-dialog/add-book-dialog.component';
+
+import {EditBookDialogComponent} from './edit-book-dialog/edit-book-dialog.component';
 import {Observable} from 'rxjs/Observable';
 
 
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {};
 
   public openDialog() {
-      const dialogRef = this.dialog.open(AddBookDialogComponent);
+      const dialogRef = this.dialog.open(EditBookDialogComponent,{height: '500px', width: '300px', data: false});
       dialogRef.afterClosed().subscribe(result => {
          // this.lStore.addBook(result);
       });
@@ -32,12 +33,12 @@ export class AppComponent implements OnInit {
       });
     if (this.lStore.localStorageExists())  {
       for (let i in localStorage) {
-          this.lStore.addBook({action: 'add', item: this.lStore.getBooksFromStorage(i)});
+          this.lStore.bookAction({action: 'add', item: this.lStore.getBooksFromStorage(i)});
       }
       // When localStorage empty add mock values
     } else {
       defaultBookSet.forEach((item: Book) => {
-        this.lStore.addBook({action: 'add', item: item});
+        this.lStore.bookAction({action: 'add', item: item});
       });
     }
   }

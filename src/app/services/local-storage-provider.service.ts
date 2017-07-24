@@ -12,7 +12,7 @@ export class LocalStorageProviderService {
   public books$$: Subject<Book> = new Subject();
   public constructor() { }
 
-    public addBook(command: any) {
+    public bookAction(command: any) {
             this.books$$.next(command);
             if (!localStorage.getItem(encodeURIComponent(command.item.title))) {
                 localStorage.setItem(encodeURIComponent(command.item.title), JSON.stringify(command.item));
@@ -31,7 +31,9 @@ export class LocalStorageProviderService {
                          console.log(item.title, command.item.title);
                          return item.title === command.item.title;
                      });
+                     //console.log(toEdit)
                      acc[toEdit] = command.item;
+                     localStorage.setItem(encodeURIComponent(command.item.title), JSON.stringify(command.item));
                      break;
                  case 'remove':
                      console.log('removing');

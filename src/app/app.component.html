@@ -1,11 +1,14 @@
 <md-toolbar color="primary">
-    <ul style=" list-style: none;">
+    <ul style="list-style: none;">
         <li style="float: left; padding: 10px; margin: 10px;">Книжная полка</li>
         <li style="float: left; padding: 10px; margin: 10px;">
             <button md-button (click) = "openDialog()">Добавить <i class="material-icons md18">add</i></button>
         </li>
         <li style="float: left; padding: 10px; margin: 10px;">
-                Поиск: <input mdInput placeholder="">
+          <md-select placeholder="Сортировка" [(ngModel)]="sortType">
+            <md-option *ngFor = "let sort of ['По названию', 'По году']" [value] = 'sort'> {{ sort }}</md-option>
+          </md-select>
+          {{ sortType }}
         </li>
     </ul>
 </md-toolbar>
