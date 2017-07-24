@@ -14,7 +14,7 @@
         </md-list>
     </md-card-content>
     <md-card-actions>
-        <button md-button>Редактировать</button>
-        <button md-button (click)="removeBook(book.title)">Удалить</button>
+        <button md-button (click) = editBook(book)>Редактировать</button>
+        <button md-button (click)="removeBook(book)">Удалить</button>
     </md-card-actions>
 </md-card>

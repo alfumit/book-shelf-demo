@@ -13,6 +13,7 @@ import { BookComponent } from './book/book.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.component';
+import { EditBookDialogComponent } from './edit-book-dialog/edit-book-dialog.component';
 
 
 
@@ -21,7 +22,8 @@ import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.compon
     AppComponent,
     BookComponent,
     SortPipe,
-    AddBookDialogComponent
+    AddBookDialogComponent,
+    EditBookDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.compon
     MdDatepickerModule
   ],
   entryComponents: [
-    AddBookDialogComponent
+    AddBookDialogComponent,
+    EditBookDialogComponent
   ],
   providers: [
     LocalStorageProviderService

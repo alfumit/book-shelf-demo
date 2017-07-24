@@ -1,40 +1,39 @@
 <div class="dialog">
-
         <form #form="ngForm" (submit)="addBook(form.value)">
             <md-list>
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="Title" value="test" name="title" ngModel required maxlength=30>
+                        <input mdInput [placeholder]="data.title" [value]="data.title" name="title" ngModel disabled required maxlength=30>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="authorFirstName" value="test" ngModel name="authorFirstName" required maxlength="20">
+                        <input mdInput [placeholder]="data.authorFirstName" [value]="data.authorFirstName" ngModel name="authorFirstName" required maxlength="20">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="authorLastName" value="test" ngModel name="authorLastName" required maxlength="20">
+                        <input mdInput [placeholder]="data.authorLastName" [value]="data.authorLastName" ngModel name="authorLastName" required maxlength="20">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="pageNum" value="" type="number" ngModel name="pageNum" required max=1000 min=0>
+                        <input mdInput [placeholder]="data.pageNum" [value]="data.pageNum" type="number" ngModel name="pageNum" required max=1000 min=0>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="issuer" value="test" name="issuer" ngModel maxlength="30">
+                        <input mdInput [placeholder]="data.issuer" [value]="data.issuer" name="issuer" ngModel maxlength="30">
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="issueYear" value="test" name="issueYear" ngModel [min]="1800" [max]="2017">
+                        <input mdInput [placeholder]="data.issueYear" [value]="data.issueYear" name="issueYear" ngModel [min]="1800" [max]="2017">
                     </md-input-container>
                 </md-list-item>
 
@@ -50,14 +49,14 @@
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput placeholder="ISBN" value="444444" type="number" name="ISBN" ngModel>
+                        <input mdInput [placeholder]="data.ISBN" [value]="data.ISBN" type="number" name="ISBN" ngModel>
                     </md-input-container>
                 </md-list-item>
 
             </md-list>
-            <div>
+            <md-dialog-actions>
               <button md-button type="submit" [disabled] = "form.invalid">Добавить</button>
-            </div>
+            </md-dialog-actions>
 
         </form>
 </div>

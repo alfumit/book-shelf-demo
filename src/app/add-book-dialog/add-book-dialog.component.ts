@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LocalStorageProviderService} from "../services/local-storage-provider.service";
+import {LocalStorageProviderService} from '../services/local-storage-provider.service';
+
 
 @Component({
   selector: 'app-add-book-dialog',
@@ -7,18 +8,15 @@ import {LocalStorageProviderService} from "../services/local-storage-provider.se
   styleUrls: ['./add-book-dialog.component.css']
 })
 export class AddBookDialogComponent implements OnInit {
-
-
+  public minD = new Date('01.01.1800');
   constructor( private lStore: LocalStorageProviderService) { }
 
   ngOnInit() {
 
   }
-  public minD = new Date("01.01.1800");
 
   public addBook = (item: Book) => {
-    console.log(item);
-    this.lStore.addBook(item);
-  };
+    this.lStore.addBook({action: 'add', item: item });
+  }
 
 }

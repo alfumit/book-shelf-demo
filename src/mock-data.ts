@@ -21,26 +21,29 @@ export const defaultBookSet: Book[] = [
         'issuer': 'Пугачев',
         'issueYear': 1721,
         'publishDate': 1722,
-        'ISBN': 1232342342342
+        'ISBN': 1232342342342,
+        'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
     },
     {
-        'title': 'Капитанская Дочка',
+        'title': 'Зимнее Утро',
+        'authorFirstName': 'Александр',
+        'authorLastName': 'Пушкин',
+        'pageNum': 2,
+        'issuer': 'Мороз',
+        'issueYear': 1721,
+        'publishDate': 1722,
+        'ISBN': 1232342342342,
+        'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
+    },
+    {
+        'title': 'Сказка о Царе Салтане',
         'authorFirstName': 'Александр',
         'authorLastName': 'Пушкин',
         'pageNum': 1000,
         'issuer': 'Пугачев',
         'issueYear': 1721,
         'publishDate': 1722,
-        'ISBN': 1232342342342
-    },
-    {
-        'title': 'Капитанская Дочка',
-        'authorFirstName': 'Александр',
-        'authorLastName': 'Пушкин',
-        'pageNum': 1000,
-        'issuer': 'Пугачев',
-        'issueYear': 1721,
-        'publishDate': 1722,
-        'ISBN': 1232342342342
+        'ISBN': 1232342342342,
+        'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
     }
 ];
