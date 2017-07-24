@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { defaultBookSet } from '../mock-data';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { MdDialog } from '@angular/material';
@@ -13,9 +13,10 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public title = 'app works!';
   public books: Book[];
-  public books$: Observable<Book>;
+
+  @Input()
+  public sortType= 'По названию';
 
   public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {};
 

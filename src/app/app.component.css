@@ -7,7 +7,7 @@ ul li {
   padding: 10px;
   margin: 10px;
 }
-.mat-select-placeholder, .mat-select-value-text {
+.mat-select-value .mat-select-value-text {
   color: white;
   font-weight: bold;
 }
