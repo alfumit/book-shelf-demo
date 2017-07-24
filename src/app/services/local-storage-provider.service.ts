@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
@@ -10,7 +10,7 @@ import 'rxjs/add/operator/filter';
 export class LocalStorageProviderService {
 
   public books$$: Subject<Book> = new Subject();
-  public constructor(private http: Http) { }
+  public constructor() { }
 
     public addBook(command: any) {
             this.books$$.next(command);
