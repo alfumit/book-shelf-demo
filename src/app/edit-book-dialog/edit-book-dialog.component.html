@@ -1,5 +1,5 @@
 <div class="dialog">
-        <form #form="ngForm" (submit)="bookAction(form.value)">
+        <form #form="ngForm" (submit)="bookction(form.value)">
             <md-list>
                 <md-list-item>
                     <md-input-container>
@@ -55,7 +55,7 @@
 
             </md-list>
             <md-dialog-actions>
-              <button md-button type="submit" [disabled] = "form.invalid">Добавить</button>
+              <button md-button type="submit" [disabled] = "form.invalid">{{data ? 'Отредактировать' : 'Добавить'}}</button>
             </md-dialog-actions>
 
         </form>
