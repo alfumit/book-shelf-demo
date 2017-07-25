@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MdCardModule, MdButtonModule, MdButtonToggleModule, MdToolbarModule,
     MdListModule, MdInputModule, MdGridListModule, MdDialogModule, MdDatepickerModule,
-  MdNativeDateModule, MdSelectModule} from '@angular/material';
+  MdNativeDateModule, MdSelectModule, MdRadioModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -38,7 +38,8 @@ import { EditBookDialogComponent } from './edit-book-dialog/edit-book-dialog.com
     MdDialogModule,
     MdNativeDateModule,
     MdDatepickerModule,
-    MdSelectModule
+    MdSelectModule,
+    MdRadioModule
   ],
   entryComponents: [
     EditBookDialogComponent

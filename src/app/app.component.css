@@ -12,3 +12,7 @@ ul li {
   font-weight: bold;
 }
 
+md-radio-button .mat-radio-label-content {
+  font-size: 1em;
+  padding: 3px 0;
+}
