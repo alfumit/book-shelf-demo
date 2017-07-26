@@ -13,6 +13,8 @@ import { BookComponent } from './book/book.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { EditBookDialogComponent } from './edit-book-dialog/edit-book-dialog.component';
+import { YearValidationDirective } from './shared/year-validation.directive';
+import { DateValidationDirective } from './shared/date-validation.directive';
 
 
 
@@ -21,7 +23,9 @@ import { EditBookDialogComponent } from './edit-book-dialog/edit-book-dialog.com
     AppComponent,
     BookComponent,
     SortPipe,
-    EditBookDialogComponent
+    EditBookDialogComponent,
+    YearValidationDirective,
+    DateValidationDirective
   ],
   imports: [
     BrowserModule,

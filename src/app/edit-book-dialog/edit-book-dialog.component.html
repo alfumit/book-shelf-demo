@@ -3,7 +3,7 @@
             <md-list>
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput [placeholder]="data.title || 'Title'" [value]="data.title" name="title" ngModel disabled required maxlength=30>
+                        <input mdInput [placeholder]="data.title || 'Title'" [value]="data.title" name="title" ngModel [disabled]="!!data.title" required maxlength=30>
                     </md-input-container>
                 </md-list-item>
 
@@ -33,15 +33,17 @@
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput [placeholder]="data.issueYear || 'Year Issued'" [value]="data.issueYear" name="issueYear" ngModel [min]="1800" [max]="2017">
+                        <input mdInput [placeholder]="data.issueYear || 'Year Issued'" type="number" [value]="data.issueYear" name="issueYear" #yearInput="ngModel" ngModel [min]="1800" [max]="2017" appYearValidation>
+                        <md-error *ngIf="yearInput.hasError('outOfBounds')">1800 до 2017</md-error>
                     </md-input-container>
                 </md-list-item>
 
                 <md-list-item>
 
                   <md-input-container>
-                    <input mdInput [mdDatepicker]="picker" placeholder="publishDate" name="publishDate" [min]="minD">
+                    <input mdInput [mdDatepicker]="picker" placeholder="publishDate" name="publishDate" [min]="minD" #dateValidity="ngModel" ngModel appDateValidation>
                     <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                    <md-error *ngIf="dateValidity.hasError('dateOutOfBounds')">От 01.01.1800 до сегодня. dd/mm/yyyy</md-error>
                   </md-input-container>
                   <md-datepicker #picker></md-datepicker>
 
@@ -49,8 +51,10 @@
 
                 <md-list-item>
                     <md-input-container>
-                        <input mdInput [placeholder]="data.ISBN || 'ISBN'" [value]="data.ISBN" type="number" name="ISBN" ngModel>
+                      <input mdInput [placeholder]="data.ISBN || 'ISBN'" [value]="data.ISBN" type="number" name="ISBN" ngModel pattern="^\d+[-| ]?\d+[-| ]?\d+[-| ]?\d+[-| ]?\d+$">
+                      <md-error>Следуйте стандарту ISBN-10 или ISBN-13.</md-error>
                     </md-input-container>
+
                 </md-list-item>
 
             </md-list>
