@@ -13,10 +13,9 @@ import { NG_VALIDATORS } from '@angular/forms';
 })
 
 export class YearValidationDirective {
+}
 
-};
-
-function yearValidFunc(validationObject: any): { [key: string]: boolean } {
+export function  yearValidFunc(validationObject: any): { [key: string]: boolean } {
   console.log(validationObject._value);
   if (validationObject._value < 1800 || validationObject._value > 2017) {
     return { outOfBounds: true };

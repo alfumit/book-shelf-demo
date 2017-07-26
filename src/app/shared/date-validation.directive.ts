@@ -16,7 +16,7 @@ export class DateValidationDirective {
 
 }
 
-function dateValidFunc(validationObject: any): { [key: string]: boolean } {
+export function dateValidFunc(validationObject: any): { [key: string]: boolean } {
   console.log(validationObject._value);
   const today = new Date(), beginning = new Date('01.01.1800'), cameIn = new Date(validationObject._value);
   if (cameIn.getTime() < beginning.getTime() || cameIn.getTime() > today.getTime()) {
