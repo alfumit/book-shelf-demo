@@ -4,7 +4,6 @@ import { LocalStorageProviderService } from './services/local-storage-provider.s
 import { MdDialog } from '@angular/material';
 
 import {EditBookDialogComponent} from './edit-book-dialog/edit-book-dialog.component';
-import {Observable} from 'rxjs/Observable';
 
 
 @Component({
@@ -30,7 +29,35 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // When localStorage filled use it
       this.lStore.getAllBooks().subscribe((books: Book[]) => {
-          this.books = books;
+
+        let res = [], booksTemp = books.slice(0), i = 0, j = 0, x = Object.assign({}, books[0]);
+        x.issueYear = 0;
+        x.title = "Я";
+
+        if (this.sortType === 'По году') {
+          while(booksTemp.length > 0) {
+            let temp = booksTemp.reduce((acc, item, ) => {
+              if (item.issueYear > acc.issueYear) { return item; }
+              return acc;
+            }, x);
+            res.push(temp);
+            console.log(booksTemp.indexOf(temp));
+            booksTemp.splice(booksTemp.indexOf(temp), 1);
+          }
+        }
+
+        if (this.sortType === 'По названию') {
+          while (booksTemp.length > 0) {
+            let temp = booksTemp.reduce((acc, item, ) => {
+              if (item.title.charCodeAt(0) < acc.title.charCodeAt(0)) { return item; }
+              return acc;
+            }, x);
+            res.push(temp);
+            console.log(booksTemp.indexOf(temp));
+            booksTemp.splice(booksTemp.indexOf(temp), 1);
+          }
+        }
+        this.books = res.length ? res : books;
       });
     if (this.lStore.localStorageExists())  {
       for (let i in localStorage) {

@@ -8,7 +8,7 @@ export const defaultBookSet: Book[] = [
         'authorLastName': 'Толстой',
         'pageNum': 1000,
         'issuer': 'Tolstoi Productions',
-        'issueYear': 1799,
+        'issueYear': 1899,
         'publishDate': 1799,
         'ISBN': 1232342342342,
         'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
@@ -19,7 +19,7 @@ export const defaultBookSet: Book[] = [
         'authorLastName': 'Пушкин',
         'pageNum': 1000,
         'issuer': 'Пугачев',
-        'issueYear': 1721,
+        'issueYear': 1730,
         'publishDate': 1722,
         'ISBN': 1232342342342,
         'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
@@ -30,7 +30,7 @@ export const defaultBookSet: Book[] = [
         'authorLastName': 'Пушкин',
         'pageNum': 2,
         'issuer': 'Мороз',
-        'issueYear': 1721,
+        'issueYear': 1921,
         'publishDate': 1722,
         'ISBN': 1232342342342,
         'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
@@ -41,7 +41,7 @@ export const defaultBookSet: Book[] = [
         'authorLastName': 'Пушкин',
         'pageNum': 1000,
         'issuer': 'Пугачев',
-        'issueYear': 1721,
+        'issueYear': 1720,
         'publishDate': 1722,
         'ISBN': 1232342342342,
         'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'

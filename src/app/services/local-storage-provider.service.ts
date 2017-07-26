@@ -31,15 +31,14 @@ export class LocalStorageProviderService {
                          console.log(item.title, command.item.title);
                          return item.title === command.item.title;
                      });
-                     //console.log(toEdit)
                      acc[toEdit] = command.item;
                      localStorage.setItem(encodeURIComponent(command.item.title), JSON.stringify(command.item));
                      break;
                  case 'remove':
-                     console.log('removing');
                      const toRemove: number = acc.findIndex((item) => {
                         return item.title === command.item.title;
                       });
+                     console.log('removing', toRemove);
                      localStorage.removeItem(encodeURIComponent(command.item.title));
                      acc.splice(toRemove, 1);
                      break;

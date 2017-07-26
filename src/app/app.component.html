@@ -10,14 +10,11 @@
             <md-radio-button *ngFor = "let sort of ['По названию', 'По году']" [value] = 'sort'>{{sort}}</md-radio-button>
           </md-radio-group>
         </li>
-        <li>
-          THIS VERSION OF APPLICATION IS NOT FINAL
-        </li>
     </ul>
 </md-toolbar>
 <section class="bookshelf">
     <md-grid-list cols="3">
-        <md-grid-tile *ngFor="let book of books">
+        <md-grid-tile *ngFor="let book of books | sortPipe: sortType">
             <app-book [book] = book></app-book>
         </md-grid-tile>
     </md-grid-list>
