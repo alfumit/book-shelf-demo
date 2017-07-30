@@ -22,5 +22,9 @@ export class EditBookDialogComponent implements OnInit {
     console.log('action' + action);
     this.lStore.bookAction({ action: action, item: item });
   }
+  
+  public addBook = (book: Book) => {
+      this.lStore.addBook(book);
+  }
 
 }

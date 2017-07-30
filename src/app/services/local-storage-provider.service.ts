@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/filter';
 export class LocalStorageProviderService {
 
   public books$$: Subject<Book> = new Subject();
-  public constructor() { }
+  public constructor(private http: Http) { }
 
     public bookAction(command: any) {
             this.books$$.next(command);
@@ -45,6 +46,21 @@ export class LocalStorageProviderService {
              }
              return acc;
          }, []);
+    }
+    
+    public addBook(book: Book): any {
+        alert('Book added');
+        let res = this.http.post('/svc/books', book);  
+        console.log(res);
+        return res;
+    }
+    
+    public getBooksfromApi(): Observable<Book[]> {
+        return this.http.get('/svc/books')
+                .map((response) => {
+                    console.log('Response:', response.json());
+                    return response.json();
+                });
     }
 
     public getBooksFromStorage(item: string): Book {

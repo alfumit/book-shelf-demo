@@ -14,7 +14,7 @@
 </md-toolbar>
 <section class="bookshelf">
     <md-grid-list cols="3">
-        <md-grid-tile *ngFor="let book of books | sortPipe: sortType">
+        <md-grid-tile *ngFor="let book of books$ | async">
             <app-book [book] = book></app-book>
         </md-grid-tile>
     </md-grid-list>

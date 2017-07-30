@@ -5,6 +5,8 @@ import { MdDialog } from '@angular/material';
 
 import {EditBookDialogComponent} from './edit-book-dialog/edit-book-dialog.component';
 
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +15,18 @@ import {EditBookDialogComponent} from './edit-book-dialog/edit-book-dialog.compo
 })
 export class AppComponent implements OnInit {
   public books: Book[];
+  public books$: Observable<Book[]>;
+  //private bookFilter = new Subject<Book>();    
 
   @Input()
   public sortType= 'По названию';
 
-  public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {};
+  public constructor (private  lStore: LocalStorageProviderService, public dialog: MdDialog) {
+      this.books$ = this.lStore.getBooksfromApi();
+  };
 
   public openDialog() {
-      const dialogRef = this.dialog.open(EditBookDialogComponent,{height: '500px', width: '300px', data: false});
+      const dialogRef = this.dialog.open(EditBookDialogComponent, {height: '500px', width: '300px', data: false});
       dialogRef.afterClosed().subscribe(result => {
          // this.lStore.addBook(result);
       });
@@ -28,6 +34,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // When localStorage filled use it
+      
+      
       this.lStore.getAllBooks().subscribe((books: Book[]) => {
 
         let res = [], booksTemp = books.slice(0), i = 0, j = 0, x = Object.assign({}, books[0]);
