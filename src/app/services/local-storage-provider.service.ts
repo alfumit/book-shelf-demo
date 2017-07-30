@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/toPromise'
 
 @Injectable()
 export class LocalStorageProviderService {
@@ -47,20 +48,25 @@ export class LocalStorageProviderService {
              return acc;
          }, []);
     }
-    
     public addBook(book: Book): any {
-        alert('Book added');
-        let res = this.http.post('/svc/books', book);  
-        console.log(res);
-        return res;
+        const headers = new Headers({ 'Content-Type': 'application/json' }),
+            options = new RequestOptions({ headers: headers });
+        return this.http.post('/svc/books', book, options).toPromise()
+            .then((res) => console.log('Book  added'));
     }
-    
+
     public getBooksfromApi(): Observable<Book[]> {
         return this.http.get('/svc/books')
                 .map((response) => {
                     console.log('Response:', response.json());
                     return response.json();
                 });
+    }
+
+    public removeBook(_id: string): any {
+        console.log('DB id', _id);
+        return this.http.delete(`/svc/books/${_id}`).toPromise()
+            .then((res) => console.log('Book removed'));
     }
 
     public getBooksFromStorage(item: string): Book {

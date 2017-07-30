@@ -62,13 +62,12 @@ app.post("/svc/books", function(req, res) {
         'ISBN': req.body.isbn || 1000,
         'image': 'https://www.kaspersky.com/content/en-global/images/homepage/logo.png'
     }, (err, book) => err ? res.send(err) : res.send(`Added ${book.title}`));
-
 });
 
 app.delete("/svc/books/:book_id", function(req, res) {
     Book.remove({
         _id : req.params.book_id
-    }, (er) => err ? res.send(err) : res.send(`Removed ${req.params.book_id}`));
+    }, (err) => err ? res.send(err) : res.send(`Removed ${req.params.book_id}`));
 });
 
 app.put("/svc/edit-book", function(req,res) {
