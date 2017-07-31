@@ -6,15 +6,15 @@
     <img md-card-image [src]="book.image" style="width: 200px">
     <md-card-content>
         <md-list>
-            <md-list-item>Количество страниц: {{book.pageNum}}</md-list-item>
-            <md-list-item>Название издательства: {{book.issuer}}</md-list-item>
-            <md-list-item>Год выхода в тираж: {{book.issueYear}}</md-list-item>
-            <md-list-item>Год публикации: {{book.publishDate}}</md-list-item>
+            <md-list-item>Page Number: {{book.pageNum}}</md-list-item>
+            <md-list-item>Issuer: {{book.issuer}}</md-list-item>
+            <md-list-item>Issued on: {{book.issueYear}}</md-list-item>
+            <md-list-item>Publication date: {{book.publishDate}}</md-list-item>
             <md-list-item>ISBN: {{book.ISBN}}</md-list-item>
         </md-list>
     </md-card-content>
     <md-card-actions>
-        <button md-button (click) = "editBook(book)">Редактировать</button>
-        <button md-button (click) = "removeBook(book._id)">Удалить</button>
+        <button md-button (click) = "editBook(book)">Edit</button>
+        <button md-button (click) = "removeBook(book._id)">Remove</button>
     </md-card-actions>
 </md-card>

@@ -9,7 +9,7 @@ let express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
   Book = require('./server/models/book.js');
-    
+
 
 
 mongoose.connect('mongodb://localhost:27017/test');
@@ -47,7 +47,7 @@ app.get("/svc/books", function(req, res) {
         if(err) res.status(400).send(err);
         res.status(200).send(books);
     })
-    
+
 });
 
 app.post("/svc/books", function(req, res) {
@@ -71,7 +71,17 @@ app.delete("/svc/books/:book_id", function(req, res) {
 });
 
 app.put("/svc/edit-book", function(req,res) {
-    res.status(200).send("Edit that book");
+  console.log(req.body.book);
+
+  Book.update({_id: req.body._id}, req.body.book, {upsert: true})
+    .then(() => {
+      res.status(200).send("Updated the book");
+    })
+    .catch(() => {
+      res.status(400).send("Failed");
+    })
+  ;
+
 });
 
 app.all('*', function(req, res) {

@@ -1,11 +1,11 @@
 <md-toolbar color="primary">
     <ul>
-        <li>Книжная полка</li>
+        <li>Book Shelf</li>
         <li>
-            <button md-button (click) = "openDialog()">Добавить <i class="material-icons md18">add</i></button>
+            <button md-button (click) = "openDialog()">Add Book <i class="material-icons md18">add</i></button>
         </li>
         <li>
-          <span>Сортировка: </span>
+          <span>Sort: </span>
           <md-radio-group [(ngModel)]="sortType">
             <md-radio-button *ngFor = "let sort of ['По названию', 'По году']" [value] = 'sort'>{{sort}}</md-radio-button>
           </md-radio-group>

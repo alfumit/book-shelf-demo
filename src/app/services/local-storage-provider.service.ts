@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/toPromise'
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class LocalStorageProviderService {
@@ -54,6 +54,11 @@ export class LocalStorageProviderService {
         return this.http.post('/svc/books', book, options).toPromise()
             .then((res) => console.log('Book  added'));
     }
+
+  public editBook(_id: string, book: Book): any {
+    return this.http.put('/svc/edit-book', {_id: _id, book: book}).toPromise()
+    .then((res) => console.log('Book  added'));
+  }
 
     public getBooksfromApi(): Observable<Book[]> {
         return this.http.get('/svc/books')

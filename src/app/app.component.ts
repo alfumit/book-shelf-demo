@@ -1,5 +1,4 @@
 import {Component, OnInit, Input} from '@angular/core';
-import { defaultBookSet } from '../mock-data';
 import { LocalStorageProviderService } from './services/local-storage-provider.service';
 import { MdDialog } from '@angular/material';
 
@@ -16,7 +15,7 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent implements OnInit {
   public books: Book[];
   public books$: Observable<Book[]>;
-  //private bookFilter = new Subject<Book>();    
+  // private bookFilter = new Subject<Book>();
 
   @Input()
   public sortType= 'По названию';
@@ -34,8 +33,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // When localStorage filled use it
-      
-      
+
+      /*
       this.lStore.getAllBooks().subscribe((books: Book[]) => {
 
         let res = [], booksTemp = books.slice(0), i = 0, j = 0, x = Object.assign({}, books[0]);
@@ -67,6 +66,8 @@ export class AppComponent implements OnInit {
         }
         this.books = res.length ? res : books;
       });
+      */
+      /*
     if (this.lStore.localStorageExists())  {
       for (let i in localStorage) {
           this.lStore.bookAction({action: 'add', item: this.lStore.getBooksFromStorage(i)});
@@ -77,6 +78,7 @@ export class AppComponent implements OnInit {
         this.lStore.bookAction({action: 'add', item: item});
       });
     }
+    */
   }
 
 }
